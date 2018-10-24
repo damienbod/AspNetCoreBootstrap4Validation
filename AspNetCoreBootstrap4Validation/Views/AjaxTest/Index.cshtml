@@ -1,23 +1,35 @@
-﻿@{
+﻿@model AspNetCoreBootstrap4Validation.ViewModels.AjaxValidationModel
+@{
     ViewData["Title"] = "Ajax Test Page";
 }
+
 <h4>Ajax Test</h4>
 
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-    Tooltip on top
-</button>
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
-    Tooltip on right
-</button>
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
-    Tooltip on bottom
-</button>
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
-    Tooltip on left
-</button>
+<form method="post" asp-action="Index" asp-controller="Home">
 
-<button type="button" id="example-popover" class="example-popover btn btn-info" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">
-    <i class="fas fa-info"></i>
-</button>
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-<i class="fas fa-info example-popover btn btn-info" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"></i>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" asp-for="Name" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+        <small id="nameHelp" class="form-text text-muted">We'll never share your name ...</small>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" asp-for="Age" placeholder="0">
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="form-check ten_px_bottom">
+        <input type="checkbox" class="form-check-input big_checkbox" asp-for="IsCool" id="IsCool">
+        <label class="form-check-label ten_px_left" for="IsCool">IsCool</label>
+        <span asp-validation-for="IsCool" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts  {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

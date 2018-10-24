@@ -1,9 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Remote Test Page";
-}
-@model AspNetCoreBootstrap4Validation.ViewModels.RemoteValidationModel
+﻿@model AspNetCoreBootstrap4Validation.ViewModels.RemoteValidationModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Remote Test Page";
 }
 
 <h4>Remote Test</h4>
@@ -15,7 +12,7 @@
     <div class="form-group">
         <label for="name" data-toggle="tooltip" data-placement="right" title="Add any name">Name</label>
         <input type="text" class="form-control" asp-for="Name" id="name" aria-describedby="nameHelp" placeholder="Enter name">
-        
+
 
         <small id="nameHelp" class="form-text text-muted">We'll never share your name ...</small>
         <span asp-validation-for="Name" class="text-danger"></span>
