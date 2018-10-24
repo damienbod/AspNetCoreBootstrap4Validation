@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASP.NET Core Bootstrap 4 Validation</title>
+    <link rel="stylesheet" href="~/css/vendor.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="bg-dark mb-4 navbar navbar-dark navbar-expand-md">
+        <a asp-controller="Home" asp-action="Index" class="navbar-brand">
+            <em>ASP.NET Core Bootstrap 4 Validation</em>
+        </a>
+        <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#topNavbarCollapse" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNavbarCollapse">
+            <ul class="mr-auto navbar-nav">
+
+                <li>
+                    <div class="main-menu">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownLangButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                EXAMPLES
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownLangButton">
+                                <a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-item">Standard</a>
+
+                                <a asp-area="" asp-controller="RemoteTest" asp-action="Index" class="dropdown-item">Remote Test</a>
+
+                                <a asp-area="" asp-controller="AjaxTest" asp-action="Index" class="dropdown-item">Ajax Test</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                @*<li class="nav-item">
+                        <a asp-controller="Home" asp-action="Index" class="nav-link">Standard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="RemoteTest" asp-action="Index" class="nav-link">Remote Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="AjaxTest" asp-action="Index" class="nav-link">Ajax Test</a>
+                    </li>*@
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <footer>
+            <p>&copy; 2018 - ASP.NET Core Bootstrap 4 Validation</p>
+        </footer>
+    </nav>
+
+    <script src="~/js/vendor.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
