@@ -1,4 +1,6 @@
-﻿namespace AspNetCoreBootstrap4Validation.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AspNetCoreBootstrap4Validation.ViewModels
 {
     public class AjaxValidationModel
     {
@@ -6,6 +8,7 @@
 
         public int Age { get; set; }
 
+        [Required]
         public string Name { get; set; }
     }
 }
