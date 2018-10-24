@@ -1,33 +1,17 @@
-﻿@model AspNetCoreBootstrap4Validation.ViewModels.AjaxValidationModel
+﻿
 @{
     ViewData["Title"] = "Ajax Test Page";
 }
 
 <h4>Ajax Test</h4>
 
-<form method="post" asp-action="Index" asp-controller="AjaxTest" data-ajax="true" data-ajax-method="POST" >
+<form asp-action="Index" asp-controller="AjaxTest" data-ajax="true" data-ajax-method="POST"
+      data-ajax-mode="replace" data-ajax-update="#ajaxresult">
 
-    <div asp-validation-summary="All" class="text-danger"></div>
-
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" asp-for="Name" id="name" aria-describedby="nameHelp" placeholder="Enter name">
-        <small id="nameHelp" class="form-text text-muted">We'll never share your name ...</small>
-        <span asp-validation-for="Name" class="text-danger"></span>
+    <div id="ajaxresult">
+        to update
+        @await Html.PartialAsync("_partialAjaxForm")
     </div>
-    <div class="form-group">
-        <label for="age">Age</label>
-        <input type="number" class="form-control" id="age" asp-for="Age" placeholder="0">
-        <span asp-validation-for="Age" class="text-danger"></span>
-    </div>
-    <div class="form-check ten_px_bottom">
-        <input type="checkbox" class="form-check-input big_checkbox" asp-for="IsCool" id="IsCool">
-        <label class="form-check-label ten_px_left" for="IsCool">IsCool</label>
-        <span asp-validation-for="IsCool" class="text-danger"></span>
-    </div>
-
-
-    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 @section Scripts  {

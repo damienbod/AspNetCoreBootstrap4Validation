@@ -16,10 +16,17 @@ namespace AspNetCoreBootstrap4Validation.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return PartialView("_partialAjaxForm", model);
             }
 
-            return Redirect("AjaxTest/Index");
+            // the client could validate this, but allowed for testing server errors
+            if(model.Name.Length < 3)
+            {
+                ModelState.AddModelError("chars", "Name should be longer than 2 chars");
+                return PartialView("_partialAjaxForm", model);
+            }
+
+            return PartialView("_partialAjaxForm", new AjaxValidationModel());
         }
     }
 }
