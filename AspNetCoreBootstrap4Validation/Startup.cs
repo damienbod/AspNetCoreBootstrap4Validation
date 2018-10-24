@@ -32,7 +32,6 @@ namespace AspNetCoreBootstrap4Validation
             Configuration = builder.Build();
         }
 
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
