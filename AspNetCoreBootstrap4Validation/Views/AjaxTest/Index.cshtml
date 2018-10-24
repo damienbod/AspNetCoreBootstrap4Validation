@@ -2,27 +2,10 @@
     ViewData["Title"] = "Ajax Test Page";
 }
 <h4>Ajax Test</h4>
+
 <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
     Tooltip on top
 </button>
 
 <button type="button" id="example-popover" class="example-popover btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
-
-<script type="text/javascript">
-    window.onload = function () {
-        jQuery(document).ready(function ($) {
-
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
-            })
-
-            $(function () {
-                $('.example-popover').popover({
-                    container: 'body'
-                })
-            })
-        });
-    }
-
-</script>
