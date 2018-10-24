@@ -17,3 +17,16 @@ textarea {
     max-width: 280px;
 }
 
+.big_checkbox {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.ten_px_bottom {
+    padding-bottom: 10px;
+}
+
+.ten_px_left {
+    padding-left: 10px;
+    padding-top: 2px;
+}

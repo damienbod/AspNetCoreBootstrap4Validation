@@ -6,6 +6,7 @@
     <title>ASP.NET Core Bootstrap 4 Validation</title>
     <link rel="stylesheet" href="~/css/vendor.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fontawesome-free-5.4.1-web/css/all.min.css" asp-append-version="true" />
 </head>
 <body>
     <nav class="bg-dark mb-4 navbar navbar-dark navbar-expand-md">
@@ -17,7 +18,6 @@
         </button>
         <div class="collapse navbar-collapse" id="topNavbarCollapse">
             <ul class="mr-auto navbar-nav">
-
                 <li>
                     <div class="main-menu">
                         <div class="dropdown">
@@ -35,15 +35,19 @@
                     </div>
                 </li>
 
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Home" asp-action="Playground" class="nav-link">Bootstrap 4 Playground</a>
+                </li>
+
                 @*<li class="nav-item">
-                        <a asp-controller="Home" asp-action="Index" class="nav-link">Standard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="RemoteTest" asp-action="Index" class="nav-link">Remote Test</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="AjaxTest" asp-action="Index" class="nav-link">Ajax Test</a>
-                    </li>*@
+            <a asp-controller="Home" asp-action="Index" class="nav-link">Standard</a>
+        </li>
+        <li class="nav-item">
+            <a asp-controller="RemoteTest" asp-action="Index" class="nav-link">Remote Test</a>
+        </li>
+        <li class="nav-item">
+            <a asp-controller="AjaxTest" asp-action="Index" class="nav-link">Ajax Test</a>
+        </li>*@
             </ul>
         </div>
     </nav>

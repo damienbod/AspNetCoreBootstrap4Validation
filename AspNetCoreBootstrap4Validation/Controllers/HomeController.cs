@@ -21,5 +21,10 @@ namespace AspNetCoreBootstrap4Validation.Controllers
 
             return Redirect("Home/Index");
         }
+
+        public IActionResult Playground()
+        {
+            return View();
+        }
     }
 }
