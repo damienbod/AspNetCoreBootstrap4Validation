@@ -22,11 +22,11 @@ namespace AspNetCoreBootstrap4Validation.Controllers
             // the client could validate this, but allowed for testing server errors
             if(model.Name.Length < 3)
             {
-                ModelState.AddModelError("chars", "Name should be longer than 2 chars");
+                ModelState.AddModelError("name", "Name should be longer than 2 chars");
                 return PartialView("_partialAjaxForm", model);
             }
 
-            return PartialView("_partialAjaxForm", new AjaxValidationModel());
+            return PartialView("_partialAjaxFormSuccess");
         }
     }
 }

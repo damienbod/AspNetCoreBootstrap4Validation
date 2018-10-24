@@ -6,7 +6,7 @@ namespace AspNetCoreBootstrap4Validation.ViewModels
     {
         public bool IsCool { get; set; }
 
-        public int Age { get; set; }
+        public int Age { get; set; } = 18;
 
         [Required]
         public string Name { get; set; }
