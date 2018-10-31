@@ -26,7 +26,8 @@ namespace AspNetCoreBootstrap4Validation.Controllers
                 return PartialView("_partialAjaxForm", model);
             }
 
-            return PartialView("_partialAjaxFormSuccess");
+            ModelState.Clear();
+            return PartialView("_partialAjaxForm");
         }
     }
 }
