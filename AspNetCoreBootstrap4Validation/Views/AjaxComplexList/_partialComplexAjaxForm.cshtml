@@ -1,4 +1,7 @@
-﻿@model AspNetCoreBootstrap4Validation.ViewModels.AjaxValidationModel 
+﻿@model AspNetCoreBootstrap4Validation.ViewModels.AjaxValidationModel
+@{
+    string guid = Guid.NewGuid().ToString();
+}
 
 <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -14,9 +17,9 @@
     <span asp-validation-for="Age" class="text-danger"></span>
 </div>
 <div class="form-check ten_px_bottom">
-    <input type="checkbox" class="form-check-input big_checkbox" asp-for="IsCool" id="AjaxValidationModelIsCool">
-    <label class="form-check-label ten_px_left" for="IsCool">IsCool</label>
-    <span asp-validation-for="IsCool" class="text-danger"></span>
+    @Html.CheckBox("IsCool", Model.IsCool,
+        new { onchange = "$('#submit-" + @guid + "').trigger('submit');", @class = "big_checkbox" })
+    <label class="form-check-label ten_px_left" >Check this to send a request</label>
 </div>
 
-<button type="submit" class="btn btn-primary">Submit</button>
+<button style="display: none" id="submit-@guid" type="submit">Submit</button>
