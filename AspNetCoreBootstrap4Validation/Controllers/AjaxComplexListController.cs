@@ -22,18 +22,18 @@ namespace AspNetCoreBootstrap4Validation.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("partialComplexAjaxForm", model);
+                return PartialView("_partialComplexAjaxForm", model);
             }
 
             // the client could validate this, but allowed for testing server errors
             if(model.Name.Length < 3)
             {
                 ModelState.AddModelError("name", "Name should be longer than 2 chars");
-                return PartialView("partialComplexAjaxForm", model);
+                return PartialView("_partialComplexAjaxForm", model);
             }
 
             ModelState.Clear();
-            return PartialView("partialComplexAjaxForm", model);
+            return PartialView("_partialComplexAjaxForm", model);
         }
     }
 }
