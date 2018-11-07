@@ -7,9 +7,11 @@ namespace AspNetCoreBootstrap4Validation.Controllers
     {
         public IActionResult Index()
         {
-            return View(new List<AjaxValidationModel> {
-                new AjaxValidationModel(),
-                new AjaxValidationModel()
+            return View(new AjaxValidationListModel {
+                Items = new List<AjaxValidationModel> {
+                    new AjaxValidationModel(),
+                    new AjaxValidationModel()
+                }
             });
         }
 
@@ -19,18 +21,18 @@ namespace AspNetCoreBootstrap4Validation.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("_partialAjaxForm", model);
+                return PartialView("partialComplexAjaxForm", model);
             }
 
             // the client could validate this, but allowed for testing server errors
             if(model.Name.Length < 3)
             {
                 ModelState.AddModelError("name", "Name should be longer than 2 chars");
-                return PartialView("_partialAjaxForm", model);
+                return PartialView("partialComplexAjaxForm", model);
             }
 
             ModelState.Clear();
-            return PartialView("_partialAjaxForm");
+            return PartialView("partialComplexAjaxForm");
         }
     }
 }
