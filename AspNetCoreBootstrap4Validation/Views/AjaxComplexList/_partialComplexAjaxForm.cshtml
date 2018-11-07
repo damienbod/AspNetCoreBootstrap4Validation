@@ -19,7 +19,7 @@
 <div class="form-check ten_px_bottom">
     @Html.CheckBox("IsCool", Model.IsCool,
         new { onchange = "$('#submit-" + @guid + "').trigger('submit');", @class = "big_checkbox" })
-    <label class="form-check-label ten_px_left" >Check this to send a request</label>
+    <label class="form-check-label ten_px_left" >Check the checkbox to send a request</label>
 </div>
 
 <button style="display: none" id="submit-@guid" type="submit">Submit</button>
