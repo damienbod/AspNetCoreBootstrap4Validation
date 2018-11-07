@@ -1,5 +1,4 @@
 ﻿@model AspNetCoreBootstrap4Validation.ViewModels.AjaxValidationModel
-
 @{
     string guid = Guid.NewGuid().ToString();
 }
@@ -21,7 +20,6 @@
     @Html.CheckBox("IsCool", Model.IsCool,
         new { onchange = "$('#submit-" + @guid + "').trigger('submit');", @class = "big_checkbox" })
     <label class="form-check-label ten_px_left" >Check this to send a request</label>
-    <span asp-validation-for="IsCool" class="text-danger"></span>
 </div>
 
 <button style="display: none" id="submit-@guid" type="submit">Submit</button>

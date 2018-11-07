@@ -11,9 +11,9 @@
     string guid = Guid.NewGuid().ToString();
 
     <form asp-action="Index" asp-controller="AjaxComplexList" data-ajax="true" data-ajax-method="POST"
-          data-ajax-mode="replace" data-ajax-update="#complex-organisation-@guid">
+          data-ajax-mode="replace" data-ajax-update="#complex-ajax-@guid">
 
-        <div id="complex-organisation-@guid">
+        <div id="complex-ajax-@guid">
             @await Html.PartialAsync("partialComplexAjaxForm", item)
         </div>
     </form>
