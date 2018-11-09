@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Ajax Test Page";
+}
+
+<h4>Ajax Test</h4>
+
+<form asp-action="Index" asp-controller="AjaxTest" data-ajax="true" data-ajax-method="POST"
+      data-ajax-mode="replace" data-ajax-update="#ajaxresult" >
+
+    <div id="ajaxresult">
+        @await Html.PartialAsync("_partialAjaxForm")
+    </div>
+</form>
+
+@section Scripts  {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
