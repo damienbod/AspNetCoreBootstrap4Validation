@@ -46,6 +46,8 @@
                 paramsFromForm[value.name] = paramsFromForm[value.name] ? paramsFromForm[value.name] || value.value : value.value;
             });
 
+            var componentData = {};
+
             componentData.standardValidation = paramsFromForm;
             componentData.screenWidth = document.documentElement.clientWidth;
 

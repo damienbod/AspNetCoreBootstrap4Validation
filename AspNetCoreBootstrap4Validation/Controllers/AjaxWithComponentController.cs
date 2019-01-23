@@ -11,7 +11,7 @@ namespace AspNetCoreBootstrap4Validation.Controllers
         }
 
         [HttpPost]
-        public IActionResult SimulationMinirail(MyComponentModel model)
+        public IActionResult LoadComponent(MyComponentModel model)
         {
             return ViewComponent("MyComponent", model);
         }
