@@ -6,7 +6,9 @@
 
 <div id="partialComponentResult"></div>
 
-<form method="post" asp-action="Index" asp-controller="AjaxWithComponent">
+<button onclick="loadComponentView()">Load component</button>
+
+<form id="partialformAjaxWithComponent" method="post" asp-action="Index" asp-controller="AjaxWithComponent">
 
     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -39,17 +41,15 @@
 
         function loadComponentView() {
             
-            var params = {};
-            $.each($("#partialform").serializeArray(), function (index, value) {
-                params[value.name] = params[value.name] ? params[value.name] || value.value : value.value;
+            var paramsFromForm = {};
+            $.each($("#partialformAjaxWithComponent").serializeArray(), function (index, value) {
+                paramsFromForm[value.name] = paramsFromForm[value.name] ? paramsFromForm[value.name] || value.value : value.value;
             });
-            //console.log(params);
 
-            datasimi.minirailModel = params;
+            componentData.standardValidation = paramsFromForm;
+            componentData.screenWidth = document.documentElement.clientWidth;
 
-            let zoomfactorSimi = document.getElementById('zoomfactor_simi');
-            datasimi.zoomfactorSimi = zoomfactorSimi.value;
-            console.log(datasimi);
+            console.log(componentData);
 
             $.ajax({
                 url: window.location.origin + "/AjaxWithComponent/LoadComponent",
@@ -60,9 +60,9 @@
                         x.overrideMimeType("application/json;charset=UTF-8");
                     }
                 },
-                data: datasimi,
+                data: componentData,
                 complete: function (result) {
-                    //console.log(result.responseText);
+                    console.log(result.responseText);
                     $("#partialComponentResult").html(result.responseText);
                 }
             });
