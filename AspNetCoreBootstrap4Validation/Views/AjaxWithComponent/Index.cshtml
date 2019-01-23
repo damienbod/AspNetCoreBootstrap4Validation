@@ -1,0 +1,83 @@
+﻿@model AspNetCoreBootstrap4Validation.ViewModels.StandardValidationModel
+@{
+    ViewData["Title"] = "Ajax with Component Page";
+}
+<h4>Ajax with Component View</h4>
+
+<div id="partialComponentResult">
+    <h5>change a value to do a component load</h5>
+
+    <text><em>ScreenWidth:</em> ...</text>
+
+    <br />
+    <text><em>Name:</em> ...</text><br />
+    <text><em>IsCool:</em> ...</text><br />
+    <text><em>Age:</em> ...</text><br />
+</div>
+
+<hr />
+
+<form id="partialformAjaxWithComponent" onchange="loadComponentView()" method="post" asp-action="Index" asp-controller="AjaxWithComponent">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" asp-for="Name" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+        <small id="nameHelp" class="form-text text-muted">We'll never share your name ...</small>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" asp-for="Age" placeholder="0">
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="form-check ten_px_bottom">
+        <input type="checkbox" class="form-check-input big_checkbox" asp-for="IsCool" id="IsCool">
+        <label class="form-check-label ten_px_left" for="IsCool">IsCool</label>
+        <span asp-validation-for="IsCool" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+@section Scripts  {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script language="javascript">
+
+        function loadComponentView() {
+            
+            var paramsFromForm = {};
+            $.each($("#partialformAjaxWithComponent").serializeArray(), function (index, value) {
+                paramsFromForm[value.name] = paramsFromForm[value.name] ? paramsFromForm[value.name] || value.value : value.value;
+            });
+
+            var componentData = {};
+
+            componentData.standardValidation = paramsFromForm;
+            componentData.screenWidth = document.documentElement.clientWidth;
+
+            console.log(componentData);
+
+            $.ajax({
+                url: window.location.origin + "/AjaxWithComponent/LoadComponent",
+                type: "post",
+                dataType: "json",
+                beforeSend: function (x) {
+                    if (x && x.overrideMimeType) {
+                        x.overrideMimeType("application/json;charset=UTF-8");
+                    }
+                },
+                data: componentData,
+                complete: function (result) {
+                    console.log(result.responseText);
+                    $("#partialComponentResult").html(result.responseText);
+                }
+            });
+        };
+
+    </script>
+}
