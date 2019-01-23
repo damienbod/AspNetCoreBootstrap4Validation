@@ -9,7 +9,7 @@ namespace EvaluationTool.Views.Simulation.SimulationMinirail
 
         public IViewComponentResult Invoke(MyComponentModel model)
         {
-            var screenWidth = "Read on the server :) " + model.ScreenWidth;
+            model.ScreenWidth = "Read on the server:" + model.ScreenWidth;
             return View(model);
         }
     }
