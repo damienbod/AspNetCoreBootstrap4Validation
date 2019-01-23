@@ -1,2 +1,16 @@
 ﻿@using AspNetCoreBootstrap4Validation.ViewModels
 @model MyComponentModel
+
+@{
+    ViewData["Title"] = "View Component";
+}
+
+<h4>Result from Component:server</h4>
+
+<p>ScreenWidth: @Model.ScreenWidth</p>
+
+<br />
+<br />
+<p>Name: @Model.StandardValidation.Name</p><br />
+<p>IsCool: @Model.StandardValidation.IsCool</p><br />
+<p>Age: @Model.StandardValidation.Age</p><br />
