@@ -1,7 +1,7 @@
 ﻿using AspNetCoreBootstrap4Validation.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EvaluationTool.Views.Simulation.SimulationMinirail
+namespace AspNetCoreBootstrap4Validation.Views
 {
     public class MyComponent : ViewComponent
     {
