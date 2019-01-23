@@ -11,6 +11,12 @@ namespace AspNetCoreBootstrap4Validation.Controllers
         }
 
         [HttpPost]
+        public IActionResult SimulationMinirail(MyComponentModel model)
+        {
+            return ViewComponent("MyComponent", model);
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(StandardValidationModel model)
         {

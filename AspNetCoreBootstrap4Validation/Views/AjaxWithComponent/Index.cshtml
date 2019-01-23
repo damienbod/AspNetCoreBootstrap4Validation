@@ -4,6 +4,8 @@
 }
 <h4>Ajax with Component View</h4>
 
+<div id="partialComponentResult"></div>
+
 <form method="post" asp-action="Index" asp-controller="AjaxWithComponent">
 
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -24,11 +26,47 @@
         <label class="form-check-label ten_px_left" for="IsCool">IsCool</label>
         <span asp-validation-for="IsCool" class="text-danger"></span>
     </div>
-    
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
+
 @section Scripts  {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script language="javascript">
+
+        function loadComponentView() {
+            
+            var params = {};
+            $.each($("#partialform").serializeArray(), function (index, value) {
+                params[value.name] = params[value.name] ? params[value.name] || value.value : value.value;
+            });
+            //console.log(params);
+
+            datasimi.minirailModel = params;
+
+            let zoomfactorSimi = document.getElementById('zoomfactor_simi');
+            datasimi.zoomfactorSimi = zoomfactorSimi.value;
+            console.log(datasimi);
+
+            $.ajax({
+                url: window.location.origin + "/AjaxWithComponent/LoadComponent",
+                type: "post",
+                dataType: "json",
+                beforeSend: function (x) {
+                    if (x && x.overrideMimeType) {
+                        x.overrideMimeType("application/json;charset=UTF-8");
+                    }
+                },
+                data: datasimi,
+                complete: function (result) {
+                    //console.log(result.responseText);
+                    $("#partialComponentResult").html(result.responseText);
+                }
+            });
+        };
+
+    </script>
 }
