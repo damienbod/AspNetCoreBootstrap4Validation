@@ -4,11 +4,20 @@
 }
 <h4>Ajax with Component View</h4>
 
-<div id="partialComponentResult"></div>
+<div id="partialComponentResult">
+    <h5>change a value to do a component load</h5>
 
-<button onclick="loadComponentView()">Load component</button>
+    <text><em>ScreenWidth:</em> ...</text>
 
-<form id="partialformAjaxWithComponent" method="post" asp-action="Index" asp-controller="AjaxWithComponent">
+    <br />
+    <text><em>Name:</em> ...</text><br />
+    <text><em>IsCool:</em> ...</text><br />
+    <text><em>Age:</em> ...</text><br />
+</div>
+
+<hr />
+
+<form id="partialformAjaxWithComponent" onchange="loadComponentView()" method="post" asp-action="Index" asp-controller="AjaxWithComponent">
 
     <div asp-validation-summary="All" class="text-danger"></div>
 
