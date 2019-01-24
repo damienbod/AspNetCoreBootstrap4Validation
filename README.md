@@ -18,4 +18,4 @@ https://getbootstrap.com
 
 ## History
 
-2019-01-24 Added anti-forgery token to javascript view component jax request
+2019-01-24 Added an Anti-Forgery token to Javascript view component ajax request
