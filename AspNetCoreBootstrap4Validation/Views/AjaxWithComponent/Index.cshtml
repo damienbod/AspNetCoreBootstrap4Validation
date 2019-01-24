@@ -4,6 +4,17 @@
 }
 <h4>Ajax with Component View</h4>
 
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@functions{
+    public string GetAntiXsrfRequestToken()
+    {
+        return Xsrf.GetAndStoreTokens(Context).RequestToken;
+    }
+}
+
+<input type="hidden" id="RequestVerificationToken"
+       name="RequestVerificationToken" value="@GetAntiXsrfRequestToken()">
+
 <div id="partialComponentResult">
     <h5>change a value to do a component load</h5>
 
@@ -49,7 +60,7 @@
     <script language="javascript">
 
         function loadComponentView() {
-            
+
             var paramsFromForm = {};
             $.each($("#partialformAjaxWithComponent").serializeArray(), function (index, value) {
                 paramsFromForm[value.name] = paramsFromForm[value.name] ? paramsFromForm[value.name] || value.value : value.value;
@@ -69,7 +80,8 @@
                 beforeSend: function (x) {
                     if (x && x.overrideMimeType) {
                         x.overrideMimeType("application/json;charset=UTF-8");
-                    }
+                    };
+                    x.setRequestHeader('RequestVerificationToken', document.getElementById('RequestVerificationToken').value);   
                 },
                 data: componentData,
                 complete: function (result) {

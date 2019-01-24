@@ -11,6 +11,7 @@ namespace AspNetCoreBootstrap4Validation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult LoadComponent(MyComponentModel model)
         {
             return ViewComponent("MyComponent", model);
