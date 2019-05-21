@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>    
-    <PackageReference Include="IdentityModel" Version="3.10.5" />
-	<PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
+    <PackageReference Include="IdentityModel" Version="3.10.10" />
+	<PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
