@@ -12,10 +12,12 @@ https://damienbod.com/2019/01/24/passing-javascript-values-to-asp-net-core-view-
 
 ## Links
 
-https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-2.1
+https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation
 
 https://getbootstrap.com
 
 ## History
+
+2019-10-06 Updated to .NET Core 3.0
 
 2019-01-24 Added an Anti-Forgery token to Javascript view component ajax request
