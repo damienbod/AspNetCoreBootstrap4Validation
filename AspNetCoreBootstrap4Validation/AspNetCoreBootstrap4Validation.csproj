@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>    
-    <PackageReference Include="IdentityModel" Version="4.0.0" />
-	<PackageReference Include="BuildBundlerMinifier" Version="3.0.415" />
+    <PackageReference Include="IdentityModel" Version="4.1.0" />
+	<PackageReference Include="BuildBundlerMinifier" Version="3.2.435" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="3.0.0" />
   </ItemGroup>
