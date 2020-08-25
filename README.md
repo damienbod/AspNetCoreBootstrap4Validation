@@ -18,6 +18,8 @@ https://getbootstrap.com
 
 ## History
 
+2020-08-25 Update Nuget packages, npm packages
+
 2020-01-10 Code clean up
 
 2019-11-17 Updated npm packages, nuget packages, .NET Core 3.1
