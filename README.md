@@ -18,6 +18,8 @@ https://getbootstrap.com
 
 ## History
 
+2021-02-04 Update .NET 5
+
 2020-08-25 Update Nuget packages, npm packages
 
 2020-01-10 Code clean up
